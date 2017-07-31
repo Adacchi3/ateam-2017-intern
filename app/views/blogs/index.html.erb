@@ -10,7 +10,7 @@
 <hr />
 
 <ul id="blogs">
-  <% @blogs.each do |blog| %>
+  <% @blogs.reverse_each do |blog| %>
     <li class="blog">
       <p><span>
         <%= blog.id %>: <%= link_to blog.body, blog %>
