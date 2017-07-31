@@ -9,6 +9,7 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
     @blog = Blog.new
+    @replies = Reply.all
   end
 
   # GET /blogs/1
