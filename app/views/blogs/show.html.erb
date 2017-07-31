@@ -10,3 +10,22 @@
   </p>
   <p class="body"><%= @blog.body %></p>
 </div>
+
+<%= form_for @reply, :url => {:controller => :replies, :action => :create} do |f| %>
+  <%= f.text_field :comment, :placeholder => 'コメントしよう', :size => '80%', :name => 'reply[comment]', :id => 'reply_comment' %>
+  <%= f.hidden_field :blog_id, :name => 'id', :id => @blog.id %>
+  <%= f.submit "コメントする", :name => 'commit', :disable_with => 'コメントする' %>
+<% end %>
+
+<hr />
+
+<ol id="replies">
+  <% @replies.reverse_each do |reply| %>
+    <li class="reply">
+      <p>
+        <span class="comment"><%= reply.comment %></span>
+        <span>|</span><span class="post-date">投稿日時:<%= reply.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
+      </p>
+    </li>
+  <% end %>
+</ol>
