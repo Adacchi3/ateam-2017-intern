@@ -1,24 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @blog.body %>
-</p>
+<h1>Mini blog</h1>
+<%= link_to '戻る', blogs_path %>
 
-<p>
-  <strong>Like:</strong>
-  <%= @blog.like %>
-</p>
-
-<p>
-  <strong>Created at:</strong>
-  <%= @blog.created_at %>
-</p>
-
-<p>
-  <strong>Updated at:</strong>
-  <%= @blog.updated_at %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<div class="blog-detail">
+  <p>
+    <span><%= @blog.id %>:</span><span class="post-date">投稿日時:<%= @blog.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
+    <span class="like">|いいね:<%= @blog.like %></span>
+  </p>
+  <p class="body"><%= @blog.body %></p>
+</div>
