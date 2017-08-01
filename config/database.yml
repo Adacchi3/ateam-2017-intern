@@ -49,6 +49,8 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: ateam-2017-intern_production
   username: ateam-2017-intern
   password: <%= ENV['ATEAM-2017-INTERN_DATABASE_PASSWORD'] %>
