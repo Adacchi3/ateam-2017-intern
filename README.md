@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Version
 
-Things you may want to cover:
+* ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
+* Rails 5.1.2
+* MySQL 5.7.19 (development)
+* PostgreSQL 9.6.1 (production on heroku)
 
-* Ruby version
+## Running App
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* https://stark-plains-12167.herokuapp.com/blogs
