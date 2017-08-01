@@ -22,7 +22,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.includes(:replies)
     @blog = Blog.new
     @replies = Reply.all
   end

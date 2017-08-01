@@ -17,7 +17,7 @@
       </span></p>
       <p class="meta">
         <span class="like"><%= link_to 'いいね', action: 'like', controller: 'blogs', id: blog.id  %>:<%= blog.like %>|</span>
-        <span class="comment">コメント数:<%= @replies.where(blog_id:blog.id).size %>|</span>
+        <span class="comment">コメント数:<%= blog.replies.length %>|</span>
         <span class="post-date">投稿日時:<%= blog.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
       </p>
     </li>
