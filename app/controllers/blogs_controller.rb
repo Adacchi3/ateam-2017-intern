@@ -1,7 +1,22 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :like]
 
+  #GET /blogs/1/like
+  #GET /blogs/1/like
   def like
+    begin 
+      @blog = Blog.all.find(params[:id])
+      @blog.like += 1
+      respond_to do |format|
+        if @blog.save
+          if params[:is_show].to_i == 1
+            format.html { redirect_to @blog }
+          else 
+            format.html { redirect_to blogs_url }
+          end
+        end
+      end
+    end
   end
 
   # GET /blogs
@@ -35,7 +50,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to blogs_url }
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
