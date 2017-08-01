@@ -6,14 +6,14 @@
 <div class="blog-detail">
   <p>
     <span><%= @blog.id %>:</span><span class="post-date">投稿日時:<%= @blog.created_at.strftime("%Y/%m/%d %H:%M:%S") %></span>
-    <span class="like">|いいね:<%= @blog.like %></span>
+    <span class="like">|<%= link_to 'いいね', action: 'like', controller: 'blogs', id: @blog.id , is_show: 1 %>:<%= @blog.like %></span>
   </p>
   <p class="body"><%= @blog.body %></p>
 </div>
 
 <%= form_for @reply, :url => {:controller => :replies, :action => :create} do |f| %>
   <%= f.text_field :comment, :placeholder => 'コメントしよう', :size => '80%', :name => 'reply[comment]', :id => 'reply_comment' %>
-  <%= f.hidden_field :blog_id, :name => 'id', :id => @blog.id %>
+  <%= f.hidden_field :blog_id, :value => @blog.id %>
   <%= f.submit "コメントする", :name => 'commit', :disable_with => 'コメントする' %>
 <% end %>
 
